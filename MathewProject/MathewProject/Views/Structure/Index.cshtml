@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MathewProject.Models.Structure>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StructureType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StructureName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.st)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Priest.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StructureType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StructureName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.st)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Priest.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StructureID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StructureID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StructureID })
+        </td>
+    </tr>
+}
+
+</table>

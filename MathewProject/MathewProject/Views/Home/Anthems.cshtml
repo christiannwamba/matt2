@@ -1,0 +1,13 @@
+﻿@model MathewProject.ViewModels.HomeViewModel
+
+@foreach (var item in Model.HomeCath)
+{
+    <h3>Papal Anthem</h3>
+    <div>@Html.Raw(item.PapalAnthem)</div>
+
+    <h3>National Anthem</h3>
+    <div>@Html.Raw(item.NationalAnthem)</div>
+
+    <h3>Diocesan Anthem</h3>
+    <div>@Html.Raw(item.DiocesanAnthem)</div>
+}

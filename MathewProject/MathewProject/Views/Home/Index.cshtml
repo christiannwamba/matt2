@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+   @Html.Partial("HomeJumboPartial")
+    <p><a href="/Home/About" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>News</h2>
+        @Html.Partial("News")
+       
+    </div>
+    <div class="col-md-4">
+        <h2>Events</h2>
+        @Html.Partial("Event")
+    </div>
+    <div class="col-md-4">
+        <h2>Announcements</h2>
+        @Html.Partial("Announcement")
+    </div>
+</div>

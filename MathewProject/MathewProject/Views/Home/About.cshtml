@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div class="row">
+    
+    <div class="col-md-10 col-md-offset-2">
+        <h3>The Catholic Pope</h3>
+        <img src="~/Images/pope.jpg" />
+    </div>
+    <div class="col-md-10 col-md-offset-2">
+        <h3>The Bishop of Nsukka Dioceses</h3>
+        <img src="~/Images/bishop.jpg" />
+    </div>
+    
+</div>
+
+<div class="row">
+    @Html.Partial("Anthems")
+</div>
+
+

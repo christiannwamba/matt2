@@ -1,0 +1,59 @@
+﻿@model MathewProject.Models.Info
+
+@{
+    ViewBag.Title = "Edit" + Model.Title;
+}
+
+<h2>Edit @Model.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Info</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.InfoID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InfoType, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="InfoType" class="form-control">
+                    <option value="News">News</option>
+                    <option value="Event">Event</option>
+                    <option value="Announcement">Announcement</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.InfoType)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Info1, "Body", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Info1, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Info1)
+            </div>
+        </div>
+
+                       
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

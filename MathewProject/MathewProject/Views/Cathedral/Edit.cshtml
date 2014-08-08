@@ -1,0 +1,83 @@
+﻿@model MathewProject.Models.Cathedral
+
+@{
+    ViewBag.Title = "Edit" + Model.CathedralName;
+}
+<script src="~/Scripts/tinymce/tinymce.min.js"></script>
+<script>
+        tinymce.init({selector:'textarea', height: 300,
+            plugins: [
+         "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+         "save table contextmenu directionality emoticons template paste textcolor"
+            ]
+        });
+</script>
+<h2>Edit @Model.CathedralName</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Cathedral</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.CathedralID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CathedralName, "Name", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CathedralName, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.CathedralName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Founded, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Founded, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Founded)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NationalAnthem, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.NationalAnthem, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.NationalAnthem)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiocesanAnthem, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.DiocesanAnthem, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.DiocesanAnthem)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PapalAnthem, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.PapalAnthem, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.PapalAnthem)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

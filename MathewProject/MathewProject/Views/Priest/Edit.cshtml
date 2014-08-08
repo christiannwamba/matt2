@@ -1,0 +1,96 @@
+﻿@model MathewProject.Models.Priest
+
+@{
+    ViewBag.Title = "Edit" + Model.FirstName + " " + Model.LastName;
+}
+<script>
+    tinymce.init({ selector: 'textarea', height: 300 });
+    $(function () {
+        $('#CathedralID, #ParishPriestID').addClass('form-control');
+    })
+</script>
+<h2>Edit @Model.FirstName  @Model.LastName</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Priest</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.PriestID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, "First Name", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LastName, "Last Name", new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DOB, "DOB", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.DOB, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.DOB)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.State, "State", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.State, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.State)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LGA, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LGA, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.LGA)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CathedralID, "Dioceses", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CathedralID", String.Empty)
+                @Html.ValidationMessageFor(model => model.CathedralID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YearOfOrdination, "Year of Ordination", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                
+                @Html.TextBoxFor(model => model.YearOfOrdination, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.YearOfOrdination)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DiocesanDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DiocesanDBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="DiocesanDBModel.Store.__MigrationHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetRoles" EntityType="DiocesanDBModel.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserClaims" EntityType="DiocesanDBModel.Store.AspNetUserClaims" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserLogins" EntityType="DiocesanDBModel.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserRoles" EntityType="DiocesanDBModel.Store.AspNetUserRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUsers" EntityType="DiocesanDBModel.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cathedral" EntityType="DiocesanDBModel.Store.Cathedral" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Info" EntityType="DiocesanDBModel.Store.Info" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Parish" EntityType="DiocesanDBModel.Store.Parish" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Priest" EntityType="DiocesanDBModel.Store.Priest" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Structure" EntityType="DiocesanDBModel.Store.Structure" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="DiocesanDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="DiocesanDBModel.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="DiocesanDBModel.Store.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="DiocesanDBModel.Store.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="DiocesanDBModel.Store.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parish_Cathedral" Association="DiocesanDBModel.Store.FK_Parish_Cathedral">
+      <End Role="Cathedral" EntitySet="Cathedral" />
+      <End Role="Parish" EntitySet="Parish" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parish_Priest" Association="DiocesanDBModel.Store.FK_Parish_Priest">
+      <End Role="Priest" EntitySet="Priest" />
+      <End Role="Parish" EntitySet="Parish" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Priest_Cathedral" Association="DiocesanDBModel.Store.FK_Priest_Cathedral">
+      <End Role="Cathedral" EntitySet="Cathedral" />
+      <End Role="Priest" EntitySet="Priest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Structure_Priest" Association="DiocesanDBModel.Store.FK_Structure_Priest">
+      <End Role="Priest" EntitySet="Priest" />
+      <End Role="Structure" EntitySet="Structure" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="ContextKey" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+    <Property Name="User_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="RoleId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="Discriminator" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Cathedral">
+    <Key>
+      <PropertyRef Name="CathedralID" />
+    </Key>
+    <Property Name="CathedralID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CathedralName" Type="varchar" MaxLength="50" />
+    <Property Name="Founded" Type="date" />
+    <Property Name="NationalAnthem" Type="varchar(max)" />
+    <Property Name="DiocesanAnthem" Type="varchar(max)" />
+    <Property Name="PapalAnthem" Type="varchar(max)" />
+    <Property Name="About" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Info">
+    <Key>
+      <PropertyRef Name="InfoID" />
+    </Key>
+    <Property Name="InfoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Info" Type="varchar(max)" />
+    <Property Name="InfoType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Parish">
+    <Key>
+      <PropertyRef Name="ParishID" />
+    </Key>
+    <Property Name="ParishID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParishName" Type="varchar" MaxLength="50" />
+    <Property Name="Founded" Type="date" />
+    <Property Name="Anthem" Type="varchar(max)" />
+    <Property Name="Location" Type="varchar(max)" />
+    <Property Name="CathedralID" Type="int" />
+    <Property Name="PriestID" Type="int" />
+  </EntityType>
+  <EntityType Name="Priest">
+    <Key>
+      <PropertyRef Name="PriestID" />
+    </Key>
+    <Property Name="PriestID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="LGA" Type="varchar" MaxLength="50" />
+    <Property Name="CathedralID" Type="int" />
+    <Property Name="YearOfOrdination" Type="date" />
+  </EntityType>
+  <EntityType Name="Structure">
+    <Key>
+      <PropertyRef Name="StructureID" />
+    </Key>
+    <Property Name="StructureID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StructureType" Type="varchar" MaxLength="50" />
+    <Property Name="PriestID" Type="int" />
+    <Property Name="StructureName" Type="varchar" MaxLength="50" />
+    <Property Name="st" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+    <End Role="AspNetUsers" Type="DiocesanDBModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="DiocesanDBModel.Store.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="DiocesanDBModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="DiocesanDBModel.Store.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="DiocesanDBModel.Store.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="DiocesanDBModel.Store.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="DiocesanDBModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="DiocesanDBModel.Store.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parish_Cathedral">
+    <End Role="Cathedral" Type="DiocesanDBModel.Store.Cathedral" Multiplicity="0..1" />
+    <End Role="Parish" Type="DiocesanDBModel.Store.Parish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cathedral">
+        <PropertyRef Name="CathedralID" />
+      </Principal>
+      <Dependent Role="Parish">
+        <PropertyRef Name="CathedralID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parish_Priest">
+    <End Role="Priest" Type="DiocesanDBModel.Store.Priest" Multiplicity="0..1" />
+    <End Role="Parish" Type="DiocesanDBModel.Store.Parish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priest">
+        <PropertyRef Name="PriestID" />
+      </Principal>
+      <Dependent Role="Parish">
+        <PropertyRef Name="PriestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Priest_Cathedral">
+    <End Role="Cathedral" Type="DiocesanDBModel.Store.Cathedral" Multiplicity="0..1" />
+    <End Role="Priest" Type="DiocesanDBModel.Store.Priest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cathedral">
+        <PropertyRef Name="CathedralID" />
+      </Principal>
+      <Dependent Role="Priest">
+        <PropertyRef Name="CathedralID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Structure_Priest">
+    <End Role="Priest" Type="DiocesanDBModel.Store.Priest" Multiplicity="0..1" />
+    <End Role="Structure" Type="DiocesanDBModel.Store.Structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priest">
+        <PropertyRef Name="PriestID" />
+      </Principal>
+      <Dependent Role="Structure">
+        <PropertyRef Name="PriestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

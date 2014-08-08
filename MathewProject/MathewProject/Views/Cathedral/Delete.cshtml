@@ -1,0 +1,64 @@
+﻿@model MathewProject.Models.Cathedral
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Cathedral</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CathedralName)
+        </dd>
+
+        <dt>
+            Founded
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Founded)
+        </dd>
+
+        <dt>
+           National Anthem
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NationalAnthem)
+        </dd>
+
+        <dt>
+            Diocesan Anthem
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiocesanAnthem)
+        </dd>
+
+        <dt>
+            Papal Anthem
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PapalAnthem)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

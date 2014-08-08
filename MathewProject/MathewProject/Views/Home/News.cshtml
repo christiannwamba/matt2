@@ -1,0 +1,27 @@
+﻿@model MathewProject.ViewModels.HomeViewModel
+
+  
+
+@foreach (var item in Model.HomeNews) {
+   <div class="panel panel-primary">
+       <div class="panel-heading">
+           @item.Title
+       </div>
+       <div class="panel-body">
+           @Html.Raw(item.Info1)
+       </div>
+       <div class="panel-footer">
+           <span class="glyphicon glyphicon-time"></span> @item.DateAdded
+            <span class="pull-right">
+            @Html.ActionLink("Details", "Details", new { controller = "Info", id = item.InfoID }) |
+                @if(Request.IsAuthenticated){
+            @Html.ActionLink("Edit", "Edit", new { controller = "Info", id = item.InfoID }) <span>|</span>
+            @Html.ActionLink("Delete", "Delete", new { controller = "Info", id = item.InfoID })
+                }
+        </span>
+       </div>
+   </div>
+     
+}
+
+

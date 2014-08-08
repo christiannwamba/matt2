@@ -1,0 +1,58 @@
+﻿@model MathewProject.Models.Cathedral
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cathedral</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CathedralName)
+        </dd>
+
+        <dt>
+            Founded
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Founded)
+        </dd>
+
+        <dt>
+           National Anthem
+        </dt>
+
+        <dd>
+           @Html.Raw(Model.NationalAnthem)
+        </dd>
+
+        <dt>
+           Diocesan Anthem
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.DiocesanAnthem)
+        </dd>
+
+        <dt>
+            Papal Anthem
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.PapalAnthem)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CathedralID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

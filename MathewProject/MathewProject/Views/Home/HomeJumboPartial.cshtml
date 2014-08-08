@@ -1,0 +1,7 @@
+﻿@model MathewProject.ViewModels.HomeViewModel
+
+
+@foreach (var item in Model.HomeCath) {
+   <h1>@item.CathedralName</h1>
+    <p>Since: @item.Founded</p>
+}

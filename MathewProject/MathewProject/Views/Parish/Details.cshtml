@@ -1,0 +1,66 @@
+﻿@model MathewProject.Models.Parish
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Parish</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParishName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Founded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Founded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anthem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anthem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            Cathedral
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cathedral.CathedralName)
+        </dd>
+
+        <dt>
+           Parish Priest
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priest.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ParishID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

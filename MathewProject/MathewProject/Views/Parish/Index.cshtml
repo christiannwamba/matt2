@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MathewProject.Models.Parish>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Parish Name
+        </th>
+        <th>
+            Founded
+        </th>
+        <th>
+            Anthem
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+           Diocess
+        </th>
+        <th>
+            Parish Priest
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParishName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Founded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Anthem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cathedral.CathedralName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Priest.FirstName) @@Html.DisplayFor(modelItem => item.Priest.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ParishID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ParishID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ParishID })
+        </td>
+    </tr>
+}
+
+</table>
